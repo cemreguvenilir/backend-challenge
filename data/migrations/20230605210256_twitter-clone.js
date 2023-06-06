@@ -14,7 +14,7 @@ exports.up = function (knex) {
       table.increments("tweet_id");
       table.string("img_url");
       table.string("username").notNullable().unique();
-      table.string("content").notNullable();
+      table.string("text").notNullable();
       table.timestamp("created_at").defaultTo(knex.fn.now());
       table
         .integer("user_id")

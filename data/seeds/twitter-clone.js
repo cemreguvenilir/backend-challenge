@@ -25,14 +25,14 @@ exports.seed = async function (knex) {
       img_url:
         "https://www.clipartmax.com/png/middle/58-589213_user-profile-avatar-scalable-vector-graphics-icon-profile-girl-avatar.png",
       username: "cemreguvenilir",
-      content: "Hello world!",
+      text: "Hello world!",
       user_id: "1",
     },
     {
       img_url:
         "https://www.pngmart.com/files/22/User-Avatar-Profile-PNG-Isolated-Transparent-Picture.png",
       username: "melihseker",
-      content: "I said good day!",
+      text: "I said good day!",
       user_id: "2",
     },
   ];
