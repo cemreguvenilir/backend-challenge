@@ -28,7 +28,7 @@ router.post("/login", mw.checkPayload, mw.isUserExist, (req, res, next) => {
       email: req.currentUser.email,
     };
     const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1d" });
-    res.json({
+    res.status(200).json({
       message: `${req.currentUser.username} geri geldi!`,
       token: token,
     });

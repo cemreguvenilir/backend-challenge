@@ -19,7 +19,7 @@ async function createUser({ username, email, password }) {
       email,
       password,
     });
-    created_user_id = user = id;
+    created_user_id = user_id;
   });
   return getUserById(created_user_id);
 }

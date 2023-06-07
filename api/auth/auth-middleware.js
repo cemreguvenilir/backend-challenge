@@ -25,8 +25,8 @@ const restricted = (req, res, next) => {
 
 const checkPayload = (req, res, next) => {
   try {
-    let { username, password } = req.body;
-    if (!username || !password) {
+    let { username, email, password } = req.body;
+    if (!username || !password || !email) {
       res.status(400).json({ message: "Eksik alan var" });
     } else {
       next();
