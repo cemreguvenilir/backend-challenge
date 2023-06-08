@@ -10,7 +10,7 @@ function getTweetsById(user_id) {
 
 async function createTweet(tweet) {
   const [insertedId] = await db("tweets").insert(tweet);
-  const inserted = await db("tweets").where("id", insertedId).first();
+  const inserted = await db("tweets").where("tweet_id", insertedId).first();
   return inserted;
 }
 

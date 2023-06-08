@@ -1,4 +1,4 @@
-const express = require("express"); // express paketini import eder
+const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 
@@ -6,7 +6,7 @@ const authRouter = require("./auth/auth-router");
 const usersRouter = require("./users/users-router");
 const tweetsRouter = require("./tweets/tweets-router");
 
-const server = express(); // server'ı oluşturur
+const server = express();
 
 server.use(helmet());
 server.use(cors());

@@ -30,9 +30,9 @@ router.post(
   async (req, res, next) => {
     try {
       let post = {
-        user_id: req.body.user_id,
+        user_id: req.decodedToken.subject,
         img_url: req.body.img_url,
-        username: req.body.username,
+
         text: req.body.text,
       };
       const insertedPost = await tweetsModel.createTweet(post);
