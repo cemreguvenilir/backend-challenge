@@ -32,7 +32,6 @@ router.post(
       let post = {
         user_id: req.decodedToken.subject,
         img_url: req.body.img_url,
-
         text: req.body.text,
       };
       const insertedPost = await tweetsModel.createTweet(post);
