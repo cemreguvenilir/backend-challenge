@@ -5,6 +5,7 @@ const cors = require("cors");
 const authRouter = require("./auth/auth-router");
 const usersRouter = require("./users/users-router");
 const tweetsRouter = require("./tweets/tweets-router");
+const favsRouter = require("./favorites/favorites-router");
 
 const server = express();
 
@@ -15,6 +16,7 @@ server.use(express.json());
 server.use("/api/auth", authRouter);
 server.use("/api/users", usersRouter);
 server.use("/api/tweets", tweetsRouter);
+server.use("/api/favorites", favsRouter);
 
 server.get("/", (req, res) => {
   res.json({ message: "express is working" });

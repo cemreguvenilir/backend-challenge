@@ -19,7 +19,27 @@ exports.up = function (knex) {
         .integer("user_id")
         .notNullable()
         .references("user_id")
-        .inTable("users");
+        .inTable("users")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+    })
+    .createTable("favorites", (table) => {
+      table.increments("favorites_id");
+      table.timestamp("created_at").defaultTo(knex.fn.now());
+      table
+        .integer("user_id")
+        .notNullable()
+        .references("user_id")
+        .inTable("users")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+      table
+        .integer("tweet_id")
+        .notNullable()
+        .references("tweet_id")
+        .inTable("tweets")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
     });
 };
 
@@ -28,5 +48,8 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("tweets").dropTableIfExists("users");
+  return knex.schema
+    .dropTableIfExists("favorites")
+    .dropTableIfExists("tweets")
+    .dropTableIfExists("users");
 };
