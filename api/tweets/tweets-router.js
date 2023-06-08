@@ -43,7 +43,7 @@ router.post(
 );
 router.delete("/:user_id", authMw.restricted, async (req, res, next) => {
   try {
-    const deletedTweet = await tweetsModel.deleteTweet(req.params.id);
+    const deletedTweet = await tweetsModel.deleteTweet(req.params.user_id);
     res.status(200).json(deletedTweet);
   } catch (error) {
     next(error);
